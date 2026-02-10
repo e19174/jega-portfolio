@@ -66,16 +66,17 @@ const categories = [
 ];
 
 const TechStackSection = () => (
-  <section id="techstack" className="px-6 py-24">
+  <section id="techstack" className="px-6 py-16">
     <div className="mx-auto max-w-5xl">
-      <div className="mb-12 text-center">
-        <h2 className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Tech Stack</h2>
-        <h3 className="text-3xl font-bold text-foreground">Technologies I Work With</h3>
+      <div className="mb-8 text-center">
+        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">Tech Stack</h2>
+        <h3 className="mb-1 text-3xl font-bold text-foreground">Technologies I Work With</h3>
+        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
       </div>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((cat) => (
-          <div key={cat.title} className="rounded-lg border border-border/50 bg-card p-6 transition-colors hover:border-primary/30">
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">{cat.title}</h4>
+          <div key={cat.title} className="rounded-lg border border-border/50 bg-card p-5 transition-colors hover:border-primary/30">
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">{cat.title}</h4>
             <div className="flex flex-wrap gap-4">
               {cat.items.map((item) => (
                 <div
@@ -84,14 +85,14 @@ const TechStackSection = () => (
                   title={item.name}
                 >
                   {item.icon ? (
-                    <i className={`${item.icon} text-2xl text-muted-foreground transition-colors group-hover:text-primary`} />
+                    <i className={`${item.icon} text-3xl text-muted-foreground transition-colors group-hover:text-primary`} />
                   ) : (
-                    <span className="flex h-7 items-center text-xs font-semibold text-muted-foreground transition-colors group-hover:text-primary">
+                    <span className="flex h-8 items-center text-xs font-bold text-muted-foreground transition-colors group-hover:text-primary">
                       {item.name}
                     </span>
                   )}
                   {item.icon && (
-                    <span className="text-[10px] text-muted-foreground/70">{item.name}</span>
+                    <span className="text-[10px] text-muted-foreground/80">{item.name}</span>
                   )}
                 </div>
               ))}
