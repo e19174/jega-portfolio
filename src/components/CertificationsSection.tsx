@@ -9,16 +9,17 @@ const certs = [
 ];
 
 const CertificationsSection = () => (
-  <section id="certifications" className="px-6 py-24">
+  <section id="certifications" className="px-6 py-16">
     <div className="mx-auto max-w-4xl">
-      <div className="mb-12 text-center">
-        <h2 className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Certifications</h2>
-        <h3 className="text-3xl font-bold text-foreground">Credentials</h3>
+      <div className="mb-8 text-center">
+        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">Certifications</h2>
+        <h3 className="mb-1 text-3xl font-bold text-foreground">Credentials</h3>
+        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {certs.map((c, i) => (
           <Card key={i} className="border-border/50 bg-card transition-colors hover:border-primary/30">
-            <CardContent className="flex items-center gap-4 p-5">
+            <CardContent className="flex items-center gap-4 p-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Award className="h-5 w-5" />
               </div>

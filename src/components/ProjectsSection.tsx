@@ -50,29 +50,30 @@ const projects = [
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="px-6 py-24">
+  <section id="projects" className="px-6 py-16">
     <div className="mx-auto max-w-5xl">
-      <div className="mb-12 text-center">
-        <h2 className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Projects</h2>
-        <h3 className="text-3xl font-bold text-foreground">What I've Built</h3>
+      <div className="mb-8 text-center">
+        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">Projects</h2>
+        <h3 className="mb-1 text-3xl font-bold text-foreground">What I've Built</h3>
+        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p, i) => (
           <Card
             key={i}
-            className="group border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-[0_0_30px_hsl(174_60%_51%/0.07)]"
+            className="group border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-[0_0_30px_hsl(217_91%_60%/0.07)]"
           >
-            <CardContent className="flex h-full flex-col p-6">
+            <CardContent className="flex h-full flex-col p-5">
               <div className="mb-2 flex items-start gap-2">
-                <h4 className="text-lg font-semibold text-foreground">{p.title}</h4>
+                <h4 className="text-base font-bold text-foreground">{p.title}</h4>
                 {p.badge && (
                   <Badge variant="outline" className="shrink-0 border-primary/40 text-primary text-[10px]">
                     {p.badge}
                   </Badge>
                 )}
               </div>
-              <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
-              <div className="mb-4 flex flex-wrap gap-1.5">
+              <p className="mb-3 flex-1 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
+              <div className="mb-3 flex flex-wrap gap-1.5">
                 {p.tags.map((t) => (
                   <Badge key={t} variant="secondary" className="text-[10px]">{t}</Badge>
                 ))}
