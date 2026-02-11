@@ -4,30 +4,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================= */
-/*        THEME COLORS       */
-/* ========================= */
+/* ================================================= */
+/*                    THEME COLORS                   */
+/* ================================================= */
 
 @layer base {
   :root {
+    /* Background */
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
 
+    /* Cards */
     --card: 222 47% 9%;
     --card-foreground: 210 40% 98%;
 
+    /* Primary Blue */
     --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
+    /* Secondary */
     --secondary: 217 91% 60%;
     --secondary-foreground: 210 40% 98%;
 
+    /* Accent */
     --accent: 199 89% 48%;
     --accent-foreground: 210 40% 98%;
 
+    /* Muted */
     --muted: 222 30% 14%;
     --muted-foreground: 215 20% 70%;
 
+    /* Borders */
     --border: 222 30% 18%;
     --ring: 221 83% 53%;
 
@@ -35,9 +42,9 @@
   }
 }
 
-/* ========================= */
-/*        BASE STYLES        */
-/* ========================= */
+/* ================================================= */
+/*                    BASE STYLES                    */
+/* ================================================= */
 
 @layer base {
   * {
@@ -52,18 +59,11 @@
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
 
-    /* PREMIUM BACKGROUND GLOW */
-    background: radial-gradient(
-        circle at 20% 20%,
-        rgba(59, 130, 246, 0.08),
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 80% 80%,
-        rgba(99, 102, 241, 0.06),
-        transparent 40%
-      ),
-      hsl(var(--background));
+    /* Premium layered background */
+    background:
+      radial-gradient(circle at 15% 20%, rgba(59,130,246,0.12), transparent 35%),
+      radial-gradient(circle at 85% 75%, rgba(99,102,241,0.10), transparent 40%),
+      linear-gradient(to bottom, #0b1120, #0a0f1c);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -71,22 +71,30 @@
   }
 }
 
-/* ========================= */
-/*      PREMIUM EFFECTS      */
-/* ========================= */
+/* ================================================= */
+/*                    PREMIUM EFFECTS                */
+/* ================================================= */
 
 /* Glass Card */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  transition: all 0.3s ease;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s ease;
 }
 
 .glass-card:hover {
-  border: 1px solid rgba(59, 130, 246, 0.6);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
-  transform: translateY(-6px);
+  border: 1px solid rgba(59, 130, 246, 0.7);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(59, 130, 246, 0.4);
+  transform: translateY(-8px);
 }
 
 /* Premium Button */
@@ -100,14 +108,36 @@
   box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
 }
 
-/* Gradient Text */
+/* Gradient Heading Text */
 .gradient-text {
-  background: linear-gradient(to right, #60a5fa, #6366f1);
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #818cf8,
+    #c084fc
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Scrollbar */
+/* Strong Section Title */
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle Hover Animation */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Premium Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -120,3 +150,4 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
