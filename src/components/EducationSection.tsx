@@ -1,5 +1,4 @@
 import { GraduationCap } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const education = [
   {
@@ -15,27 +14,57 @@ const education = [
 ];
 
 const EducationSection = () => (
-  <section id="education" className="px-6 py-16">
-    <div className="mx-auto max-w-4xl">
-      <div className="mb-8 text-center">
-        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">Education</h2>
-        <h3 className="mb-1 text-3xl font-bold text-foreground">Academic Background</h3>
-        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
+  <section id="education" className="relative px-6 py-24 overflow-hidden">
+
+    {/* Background Glow */}
+    <div className="absolute -top-20 left-0 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+    <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
+
+    <div className="relative mx-auto max-w-5xl">
+
+      {/* Section Header */}
+      <div className="mb-14 text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+          Education
+        </p>
+
+        <h2 className="section-title gradient-text">
+          Academic Background
+        </h2>
+
+        <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
       </div>
-      <div className="space-y-4">
+
+      {/* Timeline Cards */}
+      <div className="space-y-8">
         {education.map((e, i) => (
-          <Card key={i} className="border-border/50 bg-card transition-colors hover:border-primary/30">
-            <CardContent className="flex items-start gap-4 p-5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <GraduationCap className="h-5 w-5" />
+          <div
+            key={i}
+            className="glass-card rounded-2xl p-8 transition-all duration-300"
+          >
+            <div className="flex items-start gap-6">
+
+              {/* Icon */}
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-primary shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                <GraduationCap className="h-6 w-6" />
               </div>
+
+              {/* Text */}
               <div>
-                <h4 className="text-lg font-semibold text-foreground">{e.institution}</h4>
-                <p className="text-muted-foreground">{e.degree}</p>
-                <p className="mt-1 text-sm text-muted-foreground/80">{e.period}</p>
+                <h3 className="text-xl font-bold text-white">
+                  {e.institution}
+                </h3>
+
+                <p className="mt-1 text-muted-foreground text-base">
+                  {e.degree}
+                </p>
+
+                <p className="mt-2 text-sm text-muted-foreground/70">
+                  {e.period}
+                </p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -43,3 +72,4 @@ const EducationSection = () => (
 );
 
 export default EducationSection;
+
