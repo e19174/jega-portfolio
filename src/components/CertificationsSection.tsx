@@ -1,5 +1,4 @@
 import { Award } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const certs = [
   { title: "Programming for Everybody (Python)", issuer: "Coursera" },
@@ -9,30 +8,55 @@ const certs = [
 ];
 
 const CertificationsSection = () => (
-  <section id="certifications" className="px-6 py-16">
+  <section id="certifications" className="px-6 py-24">
     <div className="mx-auto max-w-4xl">
-      <div className="mb-8 text-center">
-        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">Certifications</h2>
-        <h3 className="mb-1 text-3xl font-bold text-foreground">Credentials</h3>
-        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
+
+      {/* Header */}
+      <div className="mb-12 text-center">
+        <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
+          Certifications
+        </p>
+
+        <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+          Credentials
+        </h2>
+
+        <div className="mx-auto mt-4 h-[2px] w-16 rounded-full bg-primary/60" />
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
+
+      {/* Grid */}
+      <div className="grid gap-6 sm:grid-cols-2">
         {certs.map((c, i) => (
-          <Card key={i} className="border-border/50 bg-card transition-colors hover:border-primary/30">
-            <CardContent className="flex items-center gap-4 p-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <div
+            key={i}
+            className="glass-card rounded-xl p-5 hover:translate-y-[-4px] transition-all duration-300"
+          >
+            <div className="flex items-start gap-4">
+
+              {/* Icon */}
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Award className="h-5 w-5" />
               </div>
+
+              {/* Text */}
               <div>
-                <h4 className="text-sm font-semibold text-foreground">{c.title}</h4>
-                <p className="text-xs text-muted-foreground">{c.issuer}</p>
+                <h3 className="text-base font-semibold text-foreground">
+                  {c.title}
+                </h3>
+
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {c.issuer}
+                </p>
               </div>
-            </CardContent>
-          </Card>
+
+            </div>
+          </div>
         ))}
       </div>
+
     </div>
   </section>
 );
 
 export default CertificationsSection;
+
