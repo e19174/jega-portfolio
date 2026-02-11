@@ -4,12 +4,17 @@ import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-br from-background via-[#0b1f3a] to-[#0a2540] flex min-h-[90vh] items-center justify-center px-6 pt-24">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row md:gap-20">
+    <section className="relative flex min-h-[95vh] items-center justify-center px-6 pt-24 overflow-hidden">
+
+      {/* Background Glow Effects */}
+      <div className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
+
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 md:flex-row md:gap-24">
 
         {/* Profile Image */}
         <div className="relative">
-          <div className="h-56 w-56 overflow-hidden rounded-full border-4 border-primary shadow-[0_0_40px_hsl(var(--primary)/0.35)] transition duration-300 hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] md:h-72 md:w-72">
+          <div className="h-60 w-60 overflow-hidden rounded-full border-4 border-primary/60 shadow-[0_0_60px_rgba(59,130,246,0.4)] transition duration-500 hover:shadow-[0_0_80px_rgba(59,130,246,0.6)] md:h-72 md:w-72">
             <img
               src={profilePhoto}
               alt="Jegatheesan Shanthakumar"
@@ -20,32 +25,36 @@ const HeroSection = () => {
 
         {/* Text Content */}
         <div className="text-center md:text-left">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
             Hello, I'm
           </p>
 
-          <h1 className="mb-3 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Jegatheesan <br /> Shanthakumar
+          {/* Gradient Name */}
+          <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+            <span className="gradient-text">
+              Jegatheesan Shanthakumar
+            </span>
           </h1>
 
-          <p className="mb-4 text-xl font-semibold text-secondary">
+          <p className="mb-6 text-xl font-semibold text-secondary">
             Computer Engineering Undergraduate
           </p>
 
-          <p className="mb-8 max-w-lg text-muted-foreground">
+          <p className="mb-10 max-w-xl text-lg text-muted-foreground">
             Passionate computer engineering undergraduate with hands-on experience
             in full-stack development, IoT systems, machine learning, and cloud
-            technologies. Focused on building scalable, real-world software solutions.
+            technologies. Focused on building scalable, real-world software systems.
           </p>
 
           <Button
             onClick={() =>
               document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="gap-2 bg-primary px-6 py-3 text-white rounded-xl font-semibold shadow-lg hover:bg-blue-500 hover:shadow-blue-500/40 transition-all duration-300"
+            className="btn-premium px-8 py-3 text-white rounded-xl font-semibold text-base"
           >
             View Projects
-            <ArrowDown className="h-4 w-4" />
+            <ArrowDown className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
@@ -54,3 +63,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
