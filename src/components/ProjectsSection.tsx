@@ -1,5 +1,4 @@
 import { ExternalLink, Github } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -50,45 +49,80 @@ const projects = [
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="px-6 py-16">
-    <div className="mx-auto max-w-5xl">
-      <div className="mb-8 text-center">
-        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">Projects</h2>
-        <h3 className="mb-1 text-3xl font-bold text-foreground">What I've Built</h3>
-        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
+  <section id="projects" className="relative px-6 py-28 overflow-hidden">
+
+    {/* Background Glow */}
+    <div className="absolute -top-20 left-1/3 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+    <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
+
+    <div className="relative mx-auto max-w-6xl">
+
+      {/* Header */}
+      <div className="mb-16 text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+          Projects
+        </p>
+
+        <h2 className="section-title gradient-text">
+          What I've Built
+        </h2>
+
+        <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
+
+      {/* Grid */}
+      <div className="grid gap-8 md:grid-cols-2">
         {projects.map((p, i) => (
-          <Card
+          <div
             key={i}
-            className="group border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-[0_0_30px_hsl(217_91%_60%/0.07)]"
+            className="glass-card rounded-2xl p-8 transition-all duration-300"
           >
-            <CardContent className="flex h-full flex-col p-5">
-              <div className="mb-2 flex items-start gap-2">
-                <h4 className="text-base font-bold text-foreground">{p.title}</h4>
-                {p.badge && (
-                  <Badge variant="outline" className="shrink-0 border-primary/40 text-primary text-[10px]">
-                    {p.badge}
-                  </Badge>
-                )}
-              </div>
-              <p className="mb-3 flex-1 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
-              <div className="mb-3 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <Badge key={t} variant="secondary" className="text-[10px]">{t}</Badge>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {p.links.map((l) => (
-                  <Button key={l.label} variant="outline" size="sm" asChild className="gap-1.5 border-border hover:border-primary hover:bg-primary/10 hover:text-primary">
-                    <a href={l.url} target="_blank" rel="noopener noreferrer">
-                      <l.icon className="h-3.5 w-3.5" /> {l.label}
-                    </a>
-                  </Button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+            {/* Title + Badge */}
+            <div className="mb-4 flex items-start justify-between gap-4">
+              <h3 className="text-xl md:text-2xl font-extrabold text-white">
+                {p.title}
+              </h3>
+
+              {p.badge && (
+                <Badge className="bg-primary/20 text-primary border border-primary/40">
+                  {p.badge}
+                </Badge>
+              )}
+            </div>
+
+            {/* Description */}
+            <p className="mb-6 text-base leading-relaxed text-muted-foreground">
+              {p.description}
+            </p>
+
+            {/* Tags */}
+            <div className="mb-6 flex flex-wrap gap-2">
+              {p.tags.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex flex-wrap gap-3">
+              {p.links.map((l) => (
+                <Button
+                  key={l.label}
+                  asChild
+                  className="btn-premium text-white px-4 py-2 text-sm rounded-lg"
+                >
+                  <a href={l.url} target="_blank" rel="noopener noreferrer">
+                    <l.icon className="mr-2 h-4 w-4" />
+                    {l.label}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
