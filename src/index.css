@@ -10,55 +10,28 @@
 
 @layer base {
   :root {
-    /* Background */
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
 
-    /* Cards */
     --card: 222 47% 9%;
     --card-foreground: 210 40% 98%;
 
-    /* Popovers */
-    --popover: 222 47% 9%;
-    --popover-foreground: 210 40% 98%;
-
-    /* Professional Blue */
     --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
-    /* Secondary Accent */
     --secondary: 217 91% 60%;
     --secondary-foreground: 210 40% 98%;
 
-    /* Bright Accent */
     --accent: 199 89% 48%;
     --accent-foreground: 210 40% 98%;
 
-    /* Muted Text */
     --muted: 222 30% 14%;
     --muted-foreground: 215 20% 70%;
 
-    /* Danger */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    /* Borders & Inputs */
-    --border: 221 83% 53%;
-    --input: 222 30% 14%;
+    --border: 222 30% 18%;
     --ring: 221 83% 53%;
 
-    /* Radius */
     --radius: 0.75rem;
-
-    /* Sidebar */
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 222 30% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 221 83% 53%;
-    --sidebar-ring: 221 83% 53%;
   }
 }
 
@@ -78,6 +51,19 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
+
+    /* PREMIUM BACKGROUND GLOW */
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(59, 130, 246, 0.08),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(99, 102, 241, 0.06),
+        transparent 40%
+      ),
+      hsl(var(--background));
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -89,27 +75,39 @@
 /*      PREMIUM EFFECTS      */
 /* ========================= */
 
-/* Card Glow Effect */
-.card-glow {
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   transition: all 0.3s ease;
 }
 
-.card-glow:hover {
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
-  transform: translateY(-4px);
+.glass-card:hover {
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+  transform: translateY(-6px);
 }
 
-/* Smooth Button Hover */
+/* Premium Button */
 .btn-premium {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
   transition: all 0.3s ease;
 }
 
 .btn-premium:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
 }
 
-/* Subtle Scrollbar */
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, #60a5fa, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -122,4 +120,3 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
