@@ -66,47 +66,53 @@ const categories = [
 ];
 
 const TechStackSection = () => (
-  <section id="techstack" className="px-6 py-16">
-    <div className="mx-auto max-w-5xl">
-      <div className="mb-8 text-center">
-        <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary">
+  <section id="techstack" className="px-6 py-20">
+    <div className="mx-auto max-w-6xl">
+
+      {/* Section Header */}
+      <div className="mb-14 text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
           Tech Stack
+        </p>
+
+        <h2 className="text-4xl font-extrabold md:text-5xl">
+          <span className="gradient-text">
+            Technologies I Work With
+          </span>
         </h2>
-        <h3 className="mb-1 text-3xl font-bold text-foreground">
-          Technologies I Work With
-        </h3>
-        <div className="mx-auto h-1 w-12 rounded-full bg-primary" />
+
+        <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500" />
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Grid */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((cat) => (
           <div
             key={cat.title}
-            className="rounded-lg border border-border/50 bg-card p-5 transition-colors hover:border-primary/30"
+            className="glass-card rounded-2xl p-6"
           >
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-primary">
+            <h4 className="mb-5 text-sm font-bold uppercase tracking-wider text-primary">
               {cat.title}
             </h4>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-6">
               {cat.items.map((item) => (
                 <div
                   key={item.name}
-                  className="group flex flex-col items-center gap-1.5"
-                  title={item.name}
+                  className="group flex w-16 flex-col items-center gap-2 text-center"
                 >
                   {item.icon ? (
                     <i
-                      className={`${item.icon} colored text-3xl transition-transform duration-300 group-hover:scale-110`}
+                      className={`${item.icon} colored text-4xl transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.7)]`}
                     />
                   ) : (
-                    <span className="flex h-8 items-center text-xs font-bold text-muted-foreground">
+                    <span className="text-xs font-bold text-muted-foreground">
                       {item.name}
                     </span>
                   )}
 
                   {item.icon && (
-                    <span className="text-[10px] text-muted-foreground/80">
+                    <span className="text-xs text-muted-foreground/80 group-hover:text-white transition">
                       {item.name}
                     </span>
                   )}
@@ -121,4 +127,5 @@ const TechStackSection = () => (
 );
 
 export default TechStackSection;
+
 
